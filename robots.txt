@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://artselah.com/sitemap.xml
