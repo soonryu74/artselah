@@ -68,7 +68,7 @@
          : `${w.ask || '이 작품'}에 대해 알고 싶습니다.`);
   });
 
-  const MAIL = 'qtgpark@naver.com';
+  const MAIL = 'estherp@artselah.com';
   const toast = $('toast');
   form.addEventListener('submit', async e => {
     e.preventDefault();
