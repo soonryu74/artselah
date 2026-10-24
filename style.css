@@ -99,6 +99,8 @@ figcaption b { color: var(--ink); font-weight: 500; }
 .ex-main img, .ex-wide img { width: 100%; }
 .ex-wide { margin: 96px 0 0; }
 .ex-wide figcaption { max-width: 760px; }
+.ex-film { margin: 96px auto 0; max-width: 360px; text-align: center; }
+.ex-film video { display: block; width: 100%; height: auto; background: #0b0d2a; }
 .views-h { margin: 96px 0 28px; font-size: 22px; letter-spacing: -0.01em; }
 .views { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
 .view { display: block; width: 100%; padding: 0; border: 0; background: var(--paper); cursor: zoom-in; }
@@ -204,7 +206,7 @@ figcaption b { color: var(--ink); font-weight: 500; }
   .series, .cv { grid-template-columns: 1fr; gap: 24px; }
   .form .row { grid-template-columns: 1fr; }
   .stats { gap: 36px; }
-  .ex-wide, .views-h { margin-top: 64px; }
+  .ex-wide, .ex-film, .views-h { margin-top: 64px; }
 }
 @media (max-width: 420px) {
   .grid { gap: 32px 14px; }
