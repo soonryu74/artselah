@@ -27,6 +27,13 @@
     $('lb-meta').textContent = w.meta;
     $('lb-mat').textContent = w.mat;
     $('lb-desc').textContent = w.desc;
+    let pg = $('lb-page');
+    if (!pg) {
+      pg = document.createElement('a'); pg.id = 'lb-page'; pg.className = 'txt lb-page';
+      pg.textContent = en ? 'Work page →' : '작품 페이지 →';
+      $('lb-ask').after(pg);
+    }
+    pg.href = (en ? '' : '') + 'works/' + w.slug + '/';
     if (!lb.open) lb.showModal();
   };
   const showPhoto = (src, cap) => {
@@ -37,7 +44,10 @@
     if (!lb.open) lb.showModal();
   };
   document.querySelectorAll('[data-work]').forEach(b =>
-    b.addEventListener('click', () => showWork(+b.dataset.work)));
+    b.addEventListener('click', e => {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button > 0) return;
+      e.preventDefault(); showWork(+b.dataset.work);
+    }));
   document.querySelectorAll('.view').forEach(b =>
     b.addEventListener('click', () => showPhoto(b.dataset.src, b.dataset.cap)));
   $('lb-close').addEventListener('click', () => lb.close());
@@ -64,9 +74,16 @@
     const w = works[cur];
     lb.close();
     goContact(form.kind.options[0].value,
-      en ? `I would like to know more about ${w.ask || 'this work'}.`
-         : `${w.ask || '이 작품'}에 대해 알고 싶습니다.`);
+      en ? `I would like to know more about ${w.ask ? `${w.title} (${w.meta})` : 'this work'}.`
+         : `${w.ask ? `${w.title} (${w.meta})` : '이 작품'}에 대해 알고 싶습니다.`);
   });
+
+  /* 작품 페이지에서 '이 작품 문의하기'로 왔을 때 */
+  const asked = new URLSearchParams(location.search).get('work');
+  if (asked) {
+    form.kind.value = form.kind.options[0].value;
+    form.msg.value = en ? `I would like to know more about ${asked}.` : `${asked}에 대해 알고 싶습니다.`;
+  }
 
   const MAIL = 'estherp@artselah.com';
   const toast = $('toast');

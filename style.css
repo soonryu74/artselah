@@ -212,3 +212,40 @@ figcaption b { color: var(--ink); font-weight: 500; }
   .cap b { font-size: 13px; }
   .cap span { font-size: 12px; }
 }
+
+/* 작품 카드 링크 */
+a.card { color: inherit; text-decoration: none; }
+.lb-page { display: inline-block; margin-left: 22px; }
+
+/* 작품 페이지 */
+.wp-links { display: flex; align-items: center; gap: 24px; font-size: 14px; }
+.wp-links a { text-decoration: none; color: var(--ink-2); }
+.wp-links .wp-lang { font-size: 12px; letter-spacing: .08em; color: var(--ink-3); }
+.wp { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 72px; align-items: center; padding-top: 56px; padding-bottom: 72px; }
+.wp-img { margin: 0; background: var(--paper); padding: 7%; display: grid; place-items: center; }
+.wp-img img { max-height: 76vh; width: auto; box-shadow: 0 14px 34px rgba(0,0,0,.18); }
+.wp-text .kicker a { text-decoration: none; }
+.wp-text h1 { font: 500 34px/1.2 var(--sans); letter-spacing: -0.01em; margin-bottom: 12px; }
+.wp-meta { margin: 0; font-size: 15px; color: var(--ink-2); }
+.wp-mat { margin: 2px 0 0; font-size: 14px; color: var(--ink-3); }
+.wp-desc { margin: 28px 0; font-size: 17px; color: var(--ink-2); }
+.wp-series { padding: 22px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.wp-series h2 { font: 600 13px/1 var(--sans); letter-spacing: .12em; margin-bottom: 10px; }
+.wp-series p { margin: 0; font-size: 14px; color: var(--ink-2); }
+.wp-note { margin: 22px 0 28px; font-size: 13px; color: var(--ink-3); }
+.wp-cta { display: flex; align-items: center; gap: 26px; margin: 0; }
+.wp-pager { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-bottom: 72px; }
+.wp-pager a { display: block; padding: 20px 0; border-top: 1px solid var(--line); text-decoration: none; }
+.wp-pager a + a { text-align: right; }
+.wp-pager span { display: block; font-size: 12px; color: var(--ink-3); letter-spacing: .06em; }
+.wp-pager b { font-weight: 500; font-size: 15px; }
+.wp-pager a:hover b { color: var(--gold); }
+.foot a { text-decoration: none; }
+@media (max-width: 960px) {
+  .wp { grid-template-columns: 1fr; gap: 32px; padding-top: 24px; }
+  .wp-img img { max-height: 60vh; }
+}
+@media (max-width: 760px) {
+  .wp-text h1 { font-size: 27px; }
+  .wp-cta { flex-wrap: wrap; gap: 18px; }
+}
